@@ -5,7 +5,7 @@ import os
 # Initialisation du serveur FastMCP
 mcp = FastMCP("HR_Data_Service")
 
-DB_PATH = "hr_bot.db"
+DB_PATH = "database/hr_bot.db"
 
 def get_db_connection():
     """Helper pour la connexion à la BDD avec support des noms de colonnes."""
@@ -72,11 +72,6 @@ def update_user_data(login: str, field_name: str, new_value: float) -> str:
     Met à jour un champ d'un utilisateur (ex: 'jours_conges_restants', 'credit_swile').
     Le champ field_name est modifie et vaut new_value après l'appel à update_user_date
     """
-    # Liste blanche des champs modifiables pour la sécurité
-    allowed_fields = ['jours_conges_restants', 'credit_swile', 'heures_supp_semaine']
-    
-    if field_name not in allowed_fields:
-        return f"Erreur : Le champ {field_name} n'est pas modifiable."
 
     try:
         with get_db_connection() as conn:

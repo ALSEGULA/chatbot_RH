@@ -105,5 +105,5 @@ def check_user(login):
     
 
 if __name__ == "__main__":
-    setup_test_db()
+    #setup_test_db()
     check_user('j.doe')
